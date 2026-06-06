@@ -113,7 +113,7 @@ const Countdown = () => {
         </motion.div>
 
         <div ref={contentRef} className={styles.flipGrid}>
-          {units.map((unit, i) => (
+          {units.map((unit,) => (
             <FlipCard
               key={unit.label}
               value={unit.value}
