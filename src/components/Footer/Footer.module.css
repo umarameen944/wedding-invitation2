@@ -1,0 +1,128 @@
+.footer {
+  position: relative;
+  background: var(--black);
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    transparent
+  );
+}
+
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+/* ── Top Divider ── */
+.topDivider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.topDivider span:first-child,
+.topDivider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  display: block;
+}
+
+.moon {
+  font-size: 1.2rem;
+  color: var(--gold);
+  opacity: 0.5;
+}
+
+/* ── Content ── */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.names {
+  font-family: var(--font-cinzel);
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--ivory);
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 20px);
+  letter-spacing: 0.05em;
+}
+
+.amp {
+  font-family: var(--font-playfair);
+  font-style: italic;
+  color: var(--gold);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+.date {
+  font-family: var(--font-cinzel);
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  letter-spacing: 0.4em;
+  color: rgba(245, 230, 200, 0.4);
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  gap: clamp(16px, 4vw, 40px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navLink {
+  font-family: var(--font-cinzel);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(212, 175, 55, 0.5);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navLink:hover {
+  color: var(--gold);
+}
+
+/* ── Bismillah ── */
+.bismillah {
+  font-family: var(--font-amiri);
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  color: rgba(245, 230, 200, 0.25);
+  letter-spacing: 0.03em;
+}
+
+/* ── Copyright ── */
+.copyright {
+  font-family: var(--font-poppins);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(245, 230, 200, 0.2);
+  font-weight: 300;
+}

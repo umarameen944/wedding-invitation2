@@ -1,0 +1,193 @@
+.section {
+  position: relative;
+  padding: var(--section-pad) 0;
+  background: linear-gradient(
+    180deg,
+    var(--black) 0%,
+    #0F0B04 50%,
+    var(--black) 100%
+  );
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* ── Decorative Elements ── */
+.decorTop,
+.decorBottom {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.decorLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+}
+
+.decorMoon {
+  font-size: 1.4rem;
+  color: var(--gold);
+  opacity: 0.7;
+  animation: moonPulse 3s ease-in-out infinite;
+}
+
+@keyframes moonPulse {
+  0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 4px rgba(212,175,55,0)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(212,175,55,0.6)); }
+}
+
+.decorDiamond {
+  width: 8px;
+  height: 8px;
+  background: var(--gold);
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  flex-shrink: 0;
+}
+
+/* ── Glass Card ── */
+.card {
+  width: 100%;
+  padding: 2px;
+  border-radius: 4px;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.4) 0%,
+    rgba(212, 175, 55, 0.05) 50%,
+    rgba(212, 175, 55, 0.4) 100%
+  );
+}
+
+.cardInner {
+  position: relative;
+  background: rgba(10, 8, 4, 0.92);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border-radius: 3px;
+  padding: clamp(40px, 7vw, 80px) clamp(30px, 6vw, 70px);
+  text-align: center;
+}
+
+/* ── Corner Ornaments ── */
+.corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.corner::before,
+.corner::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.corner::before {
+  width: 100%;
+  height: 1px;
+}
+
+.corner::after {
+  width: 1px;
+  height: 100%;
+}
+
+.cornerTL { top: 16px; left: 16px; }
+.cornerTR { top: 16px; right: 16px; transform: scaleX(-1); }
+.cornerBL { bottom: 16px; left: 16px; transform: scaleY(-1); }
+.cornerBR { bottom: 16px; right: 16px; transform: scale(-1); }
+
+/* ── Quote Content ── */
+.quoteContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.arabic {
+  font-family: var(--font-amiri);
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  color: var(--champagne);
+  line-height: 1.9;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* ── Internal Divider ── */
+.quranDivider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 60%;
+}
+
+.quranDivider span:first-child,
+.quranDivider span:last-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  display: block;
+}
+
+.starDiamond {
+  font-size: 0.8rem;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+.translation {
+  font-family: var(--font-playfair);
+  font-style: italic;
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  color: var(--ivory);
+  line-height: 1.8;
+  max-width: 640px;
+  opacity: 0.9;
+}
+
+.reference {
+  font-family: var(--font-cinzel);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.8;
+  font-style: normal;
+}
+
+@media (max-width: 600px) {
+  .quranDivider {
+    width: 80%;
+  }
+}

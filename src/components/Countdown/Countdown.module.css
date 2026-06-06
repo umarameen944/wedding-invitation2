@@ -1,0 +1,235 @@
+.section {
+  position: relative;
+  padding: var(--section-pad) 0;
+  background: var(--black);
+  overflow: hidden;
+}
+
+.bgGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse,
+    rgba(212, 175, 55, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.sectionLabel {
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
+.title {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--ivory);
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  font-family: var(--font-amiri);
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+  line-height: 1.4;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin-top: 8px;
+}
+
+/* ── Flip Grid ── */
+.flipGrid {
+  display: flex;
+  gap: clamp(16px, 4vw, 40px);
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* ── Flip Unit ── */
+.flipUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ── Flip Card ── */
+.flipCard {
+  position: relative;
+  width: clamp(80px, 14vw, 130px);
+  height: clamp(90px, 16vw, 150px);
+  perspective: 600px;
+  background: rgba(255, 248, 240, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 4px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(212, 175, 55, 0.1);
+}
+
+.top,
+.bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.top {
+  top: 0;
+  background: rgba(20, 15, 5, 0.8);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  align-items: flex-end;
+  padding-bottom: 2px;
+}
+
+.bottom {
+  bottom: 0;
+  background: rgba(13, 10, 3, 0.9);
+  align-items: flex-start;
+  padding-top: 2px;
+}
+
+.top span,
+.bottom span {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--champagne);
+  line-height: 1;
+  display: block;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+/* ── Flip Faces ── */
+.flipFace {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  transform-origin: bottom center;
+}
+
+.flipFace span {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--champagne);
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.flipFaceFront {
+  top: 0;
+  background: rgba(20, 15, 5, 0.95);
+  align-items: flex-end;
+  padding-bottom: 2px;
+  animation: flipTopDown 0.6s ease-in forwards;
+  z-index: 3;
+  transform-origin: bottom center;
+}
+
+.flipFaceBack {
+  bottom: 0;
+  background: rgba(13, 10, 3, 0.95);
+  align-items: flex-start;
+  padding-top: 2px;
+  animation: flipBottomReveal 0.6s ease-out 0.3s forwards;
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes flipTopDown {
+  0% { transform: rotateX(0deg); }
+  100% { transform: rotateX(-90deg); }
+}
+
+@keyframes flipBottomReveal {
+  0% { transform: rotateX(90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+/* Glow on flip card hover */
+.flipCard:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.5),
+    0 4px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(212, 175, 55, 0.15),
+    inset 0 1px 0 rgba(212, 175, 55, 0.2);
+}
+
+/* ── Label ── */
+.flipLabel {
+  font-family: var(--font-cinzel);
+  font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.7;
+}
+
+/* ── Date Caption ── */
+.weddingDateCaption {
+  font-family: var(--font-cinzel);
+  font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+  letter-spacing: 0.3em;
+  color: rgba(245, 230, 200, 0.4);
+  text-align: center;
+}
+
+/* ── Mobile ── */
+@media (max-width: 480px) {
+  .flipGrid {
+    gap: 12px;
+  }
+}

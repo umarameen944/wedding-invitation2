@@ -1,0 +1,362 @@
+.section {
+  position: relative;
+  padding: var(--section-pad) 0;
+  background: radial-gradient(circle at 20% 30%, #0b0f1c, #03060c);
+  overflow-x: hidden;
+}
+
+/* ── Stars ── */
+.starsContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+.floatingStar {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: radial-gradient(circle, #ffd966, #d4af37);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: starTwinkle 3s infinite alternate;
+}
+@keyframes starTwinkle {
+  0% { opacity: 0.2; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* ── Arabesque borders ── */
+.arabesqueTop, .arabesqueBottom {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-repeat: repeat-x;
+  background-size: 60px 60px;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 1;
+}
+.arabesqueTop {
+  top: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath fill='none' stroke='%23d4af37' stroke-width='1.2' d='M15,30 Q22,15 30,30 T45,30' /%3E%3C/svg%3E");
+}
+.arabesqueBottom {
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 60px);
+  z-index: 2;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.archDecor {
+  width: 80px;
+  height: 40px;
+  border-top: 2px solid var(--gold);
+  border-left: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+  border-radius: 80px 80px 0 0;
+  opacity: 0.6;
+}
+.sectionLabel {
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(0,0,0,0.3);
+  padding: 4px 16px;
+  border-radius: 40px;
+}
+.title {
+  font-family: var(--font-cinzel);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--ivory);
+  letter-spacing: 0.04em;
+}
+.titleDivider {
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+.dividerIcon {
+  font-size: 1.3rem;
+  color: var(--gold);
+}
+.titleDivider::before,
+.titleDivider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ── Cards Grid ── */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+.venueCard {
+  position: relative;
+  background: linear-gradient(145deg, rgba(10,17,40,0.7), rgba(3,6,12,0.85));
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 32px 12px 32px 12px;
+  padding: 28px 24px;
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  overflow: hidden;
+}
+.venueCard::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 24px 4px 24px 4px;
+  border: 1px dashed rgba(212,175,55,0.2);
+  pointer-events: none;
+}
+.venueCard:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+  box-shadow: 0 20px 35px -12px black, 0 0 30px rgba(212,175,55,0.2);
+}
+.cardGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(212,175,55,0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.venueCard:hover .cardGlow {
+  opacity: 1;
+}
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.eventBadge {
+  font-family: var(--font-cinzel);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gold);
+  background: rgba(212,175,55,0.12);
+  padding: 4px 12px;
+  border-radius: 40px;
+  letter-spacing: 0.1em;
+}
+.eventDate {
+  font-family: var(--font-poppins);
+  font-size: 0.75rem;
+  color: var(--champagne);
+  opacity: 0.8;
+}
+.venueName {
+  font-family: var(--font-cinzel);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--ivory);
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+.detailRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-family: var(--font-poppins);
+  font-size: 0.9rem;
+  color: rgba(245, 230, 200, 0.7);
+  line-height: 1.5;
+}
+.icon {
+  color: var(--gold);
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+.btnPrimary, .btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-family: var(--font-cinzel);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-radius: 40px;
+}
+.btnPrimary {
+  background: var(--gold);
+  color: var(--black);
+  border: 1px solid var(--gold);
+}
+.btnPrimary:hover {
+  background: var(--gold-light);
+  box-shadow: 0 0 15px rgba(212,175,55,0.6);
+}
+.btnSecondary {
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(212,175,55,0.4);
+}
+.btnSecondary:hover {
+  background: rgba(212,175,55,0.1);
+  border-color: var(--gold);
+}
+
+/* ── Map Section ── */
+.mapSection {
+  margin-top: 70px;
+  text-align: center;
+}
+.mapHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.mapLabel {
+  font-family: var(--font-cinzel);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(0,0,0,0.3);
+  padding: 4px 16px;
+  border-radius: 40px;
+}
+.mapDivider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.mapWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.25);
+}
+.mapBorder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.6), rgba(212,175,55,0.2), rgba(212,175,55,0.6));
+  border-radius: 14px;
+}
+.map {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  filter: brightness(1) contrast(1.05) saturate(1.1);
+  transition: filter 0.3s ease;
+}
+.map:hover {
+  filter: brightness(1.08) contrast(1.1) saturate(1.2);
+}
+.mapOverlay {
+  position: absolute;
+  inset: 4px;
+  border-radius: 12px;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(212,175,55,0.08));
+}
+.mapHint {
+  margin-top: 16px;
+  font-family: var(--font-poppins);
+  font-size: 0.7rem;
+  color: rgba(245, 230, 200, 0.5);
+  letter-spacing: 0.05em;
+}
+
+/* ── Responsive ── */
+@media (max-width: 850px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .mapWrapper {
+    height: 280px;
+  }
+}
+@media (max-width: 550px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btnPrimary, .btnSecondary {
+    justify-content: center;
+    width: 100%;
+  }
+}
+/* Add inside .venueCard or separately */
+.cardMap {
+  margin-top: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 200px;
+}
+
+.cardMap .mapBorder {
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(212,175,55,0.5), rgba(212,175,55,0.1));
+  border-radius: 14px;
+  height: 100%;
+}
+
+.cardMap .map {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  filter: brightness(1) contrast(1.05);
+}
+
+.cardMap .mapOverlay {
+  inset: 3px;
+  border-radius: 12px;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(212,175,55,0.1));
+}
+
+/* On mobile, maps stack naturally */
+@media (max-width: 850px) {
+  .cardMap {
+    height: 180px;
+  }
+}
