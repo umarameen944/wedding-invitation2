@@ -91,8 +91,8 @@ const Celebration = () => {
         >
           <defs>
             <linearGradient id="palaceCelebGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2A1A06" stopOpacity="0.95" />
-              <stop offset="100%" stopColor="#0D0D0D" stopOpacity="1" />
+              <stop offset="0%" stopColor="#3D2817" stopOpacity="0.95" />
+              <stop offset="100%" stopColor="#1A1410" stopOpacity="1" />
             </linearGradient>
             <filter id="windowGlowCeleb">
               <feGaussianBlur stdDeviation="4" result="coloredBlur" />
@@ -111,21 +111,21 @@ const Celebration = () => {
 
           {/* Center dome */}
           <rect x="580" y="200" width="280" height="180" fill="url(#palaceCelebGrad)" />
-          <ellipse cx="720" cy="155" rx="90" ry="110" fill="#1A1208" />
-          <ellipse cx="720" cy="75" rx="28" ry="42" fill="#1A1208" />
-          <line x1="720" y1="33" x2="720" y2="10" stroke="#FFD700" strokeWidth="3" opacity="0.9" />
+          <ellipse cx="720" cy="155" rx="90" ry="110" fill="#2A1F10" />
+          <ellipse cx="720" cy="75" rx="28" ry="42" fill="#2A1F10" />
+          <line x1="720" y1="33" x2="720" y2="10" stroke="#FFD700" strokeWidth="3" opacity="1" />
           <circle cx="720" cy="8" r="7" fill="#FFD700" opacity="1" />
 
           {/* Left tower */}
           <rect x="260" y="180" width="100" height="200" fill="url(#palaceCelebGrad)" />
-          <ellipse cx="310" cy="140" rx="25" ry="35" fill="#1A1208" />
-          <line x1="310" y1="105" x2="310" y2="85" stroke="#FFD700" strokeWidth="2" opacity="0.9" />
+          <ellipse cx="310" cy="140" rx="25" ry="35" fill="#2A1F10" />
+          <line x1="310" y1="105" x2="310" y2="85" stroke="#FFD700" strokeWidth="2" opacity="1" />
           <circle cx="310" cy="83" r="4" fill="#FFD700" />
 
           {/* Right tower */}
           <rect x="1080" y="180" width="100" height="200" fill="url(#palaceCelebGrad)" />
-          <ellipse cx="1130" cy="140" rx="25" ry="35" fill="#1A1208" />
-          <line x1="1130" y1="105" x2="1130" y2="85" stroke="#FFD700" strokeWidth="2" opacity="0.9" />
+          <ellipse cx="1130" cy="140" rx="25" ry="35" fill="#2A1F10" />
+          <line x1="1130" y1="105" x2="1130" y2="85" stroke="#FFD700" strokeWidth="2" opacity="1" />
           <circle cx="1130" cy="83" r="4" fill="#FFD700" />
 
           {/* Lit windows — all golden */}
@@ -163,7 +163,7 @@ const Celebration = () => {
           <ellipse cx="720" cy="378" rx="500" ry="20" fill="rgba(212,175,55,0.15)" filter="url(#windowGlowCeleb)" />
 
           {/* Gold trim */}
-          <line x1="200" y1="260" x2="1240" y2="260" stroke="#D4AF37" strokeWidth="1" opacity="0.4" />
+          <line x1="200" y1="260" x2="1240" y2="260" stroke="#FFD700" strokeWidth="1" opacity="0.6" />
         </svg>
       </div>
 

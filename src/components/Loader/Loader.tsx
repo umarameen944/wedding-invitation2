@@ -120,7 +120,7 @@ const Loader = ({ onComplete }: LoaderProps) => {
             <span className={styles.invitationLabel}>Wedding Invitation</span>
           </div>
           <div className={styles.textLine}>
-            <span className={styles.namesPreview}>Hani & Sakib</span>
+            <span className={styles.namesPreview}>Hani & Saqib</span>
           </div>
           <div className={styles.textLine}>
             <span className={styles.datePreview}>03 · 07 · MMXXVI</span>

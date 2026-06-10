@@ -45,8 +45,8 @@ const PalaceBackground = ({ lightsOn = false }: PalaceBackgroundProps) => {
       >
         <defs>
           <linearGradient id="palaceGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#1A1008" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#0D0D0D" stopOpacity="1" />
+            <stop offset="0%" stopColor="#2A1F10" stopOpacity="1" />
+            <stop offset="100%" stopColor="#1A1410" stopOpacity="1" />
           </linearGradient>
           <linearGradient id="windowGlow" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="#FFD700" stopOpacity="0.9" />
@@ -73,12 +73,12 @@ const PalaceBackground = ({ lightsOn = false }: PalaceBackgroundProps) => {
         <rect x="0" y="565" width="1440" height="8" fill="#1A1008" opacity="0.5" />
 
         {/* Far background towers (low opacity for depth) */}
-        <g opacity="0.3">
+        <g opacity="0.8">
           <rect x="50" y="420" width="40" height="150" fill="url(#palaceGrad)" />
-          <path d="M50 420 Q70 390 90 420Z" fill="#1A1008" />
+          <path d="M50 420 Q70 390 90 420Z" fill="#2A1F10" />
 
           <rect x="1350" y="420" width="40" height="150" fill="url(#palaceGrad)" />
-          <path d="M1350 420 Q1370 390 1390 420Z" fill="#1A1008" />
+          <path d="M1350 420 Q1370 390 1390 420Z" fill="#2A1F10" />
         </g>
 
         {/* Main palace base */}
@@ -153,18 +153,18 @@ const PalaceBackground = ({ lightsOn = false }: PalaceBackgroundProps) => {
         {/* Center main dome */}
         <rect x="580" y="360" width="280" height="210" fill="url(#palaceGrad)" />
         {/* Large onion dome */}
-        <ellipse cx="720" cy="310" rx="90" ry="110" fill="#1A1208" />
-        <ellipse cx="720" cy="235" rx="30" ry="45" fill="#1A1208" />
+        <ellipse cx="720" cy="310" rx="90" ry="110" fill="#2A1F10" />
+        <ellipse cx="720" cy="235" rx="30" ry="45" fill="#2A1F10" />
         <line
           x1="720"
           y1="190"
           x2="720"
           y2="160"
-          stroke="#D4AF37"
+          stroke="#FFD700"
           strokeWidth="3"
-          opacity="0.9"
+          opacity="1"
         />
-        <circle cx="720" cy="157" r="8" fill="#D4AF37" opacity="0.9" />
+        <circle cx="720" cy="157" r="8" fill="#FFD700" opacity="1" />
         {/* Dome decorative ring */}
         <ellipse
           cx="720"
