@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import Loader from '@components/Loader/Loader';
 import ScrollProgress from '@components/ScrollProgress/ScrollProgress';
+import AudioPlayer from '@components/AudioPlayer/AudioPlayer';
 import Home from '@/pages/Home';
 import { useMousePosition } from '@hooks/useMousePosition';
 import { useLenis } from '@hooks/useLenis';
@@ -62,6 +63,9 @@ const App = () => {
 
       {/* Main page */}
       {!isLoading && <Home />}
+
+      {/* Global audio player (sticky) - will autoplay after 1s, or shows hint for user interaction */}
+      <AudioPlayer />
     </>
   );
 };

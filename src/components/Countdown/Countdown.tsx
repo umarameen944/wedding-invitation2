@@ -130,7 +130,7 @@ const Countdown = () => {
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          3 · July · 2026 &nbsp;·&nbsp; Bengaluru
+          3 · July · 2026 &nbsp;·&nbsp; Mandya
         </motion.p>
       </div>
     </section>

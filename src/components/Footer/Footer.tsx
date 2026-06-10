@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { WEDDING_DATA } from '@utils/constants';
+import { FaInstagram } from 'react-icons/fa';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -46,6 +47,19 @@ const Footer = () => {
           <p className={styles.copyright}>
             Crafted with love for a timeless celebration
           </p>
+
+          <div className={styles.credit}>
+            <a
+              href="https://www.instagram.com/umar._.ameen?igsh=MWJxd212bjhrY2xpZA%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.creditLink}
+              aria-label="Credit - Umar Ameen"
+            >
+              <span className={styles.creditText}>@by Umar Ameen</span>
+              <FaInstagram aria-hidden="true" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </footer>
