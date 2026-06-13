@@ -26,7 +26,7 @@ const Footer = () => {
             <span>{WEDDING_DATA.groom.name}</span>
           </div>
 
-          <p className={styles.date}>19 · December · 2026</p>
+          <p className={styles.date}>03 · July · 2026</p>
 
           <nav className={styles.nav} aria-label="Footer navigation">
             {[
